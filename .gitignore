@@ -1,0 +1,21 @@
+
+# EDITORS
+.vscode
+
+
+# PACKAGES
+node_modules
+
+
+# LOGS
+logs
+*.log
+npm-debug.log*
+
+# PRIVACY
+
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
