@@ -1,11 +1,11 @@
 
-import { Router } from 'express';
-import { listar } from '../controllers/producto.controller.js';
+const { Router } = require('express');
+const ProductoController = require('../controllers/producto.controller');
 
 const router = Router();
 
 
-router.get('/productos',listar);
+router.get('/productos',ProductoController.listar);
 
 
-export default router;
+module.exports = router;
