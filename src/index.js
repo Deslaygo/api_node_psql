@@ -16,6 +16,7 @@ app.use(express.json());
 app.use('/api/v1',usuarioRoutes);
 app.use('/api/v1',productoRoutes);
 
+const port = process.env.API_PORT;
 
 
-app.listen(process.env.API_PORT || 4000)
+app.listen( port || 4000,() => console.log(`SERVER RUN ON PORT ${port}`));
