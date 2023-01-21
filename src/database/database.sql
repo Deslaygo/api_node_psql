@@ -4,3 +4,5 @@ CREATE TABLE public.usuarios (
 	name varchar(200) NULL,
 	password varchar(100) NULL
 );
+
+alter table usuarios add primary key(usuario_id);
