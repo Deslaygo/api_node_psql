@@ -29,6 +29,10 @@ class UsuarioService {
   static async obtenerDetalle(filtros){
     return UsuarioRepo.obtenerDetalle(filtros);
   }
+
+  static async eliminar(datos){
+    return UsuarioRepo.eliminar(datos);
+  }
 }
 
 module.exports = UsuarioService;

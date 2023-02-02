@@ -8,9 +8,9 @@ const router = Router();
 
 router.get('/usuarios',UsuarioController.listar); 
 
-router.get('/usuarios/obtenerDetalle',
-body('usuario_id').not().isEmpty().withMessage('Username es requerido'),
-UsuarioController.obtenerDetalle); 
+router.get('/usuarios/:id',UsuarioController.obtenerDetalle);
+
+router.delete('/usuarios/:id',UsuarioController.eliminar);
 
 router.post('/usuarios',
 body('username').notEmpty().withMessage('Username es requerido'),

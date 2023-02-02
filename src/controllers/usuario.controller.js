@@ -18,12 +18,35 @@ class UsuarioController {
 
   static obtenerDetalle = async  (req,res) => {
     try {
-      ResponseHelper.errorValidator(req,res);
+      let id = req.params.id;
+      
+      
 
-      let filtros = req.body || {};
+      let filtros = {
+        usuario_id:id
+      };
       const data = await UsuarioService.obtenerDetalle(filtros);
 
       return ResponseHelper.success(res,'Se obtuvo usuario correctamente',data);
+      
+    } catch (error) {
+      return ResponseHelper.error(res,error.message);
+    }
+    
+  }
+
+  static eliminar = async  (req,res) => {
+    try {
+      let id = req.params.id;
+      
+      
+
+      let filtros = {
+        usuario_id:id
+      };
+      const data = await UsuarioService.eliminar(filtros);
+
+      return ResponseHelper.success(res,'Se elimino usuario correctamente',data);
       
     } catch (error) {
       return ResponseHelper.error(res,error.message);

@@ -28,9 +28,25 @@ class UsuarioRepo {
         )
         .where('su.usuario_id',filtros.usuario_id)
         .from('usuarios AS su');
-        console.log(data);
 
         return data || {};
+      
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  static async eliminar(datos) {
+    try {
+      const knex = db.getQueryBuilder();
+      const result =  await knex('usuarios')
+      .where('usuario_id',datos.usuario_id)
+      .del();
+      
+      if(result === 0)
+        throw new Error('El usuario no fue encontrado');
+
+        return true;
       
     } catch (error) {
       throw error;
