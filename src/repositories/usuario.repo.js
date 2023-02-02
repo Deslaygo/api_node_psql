@@ -19,6 +19,24 @@ class UsuarioRepo {
     }
   }
 
+  static async obtenerDetalle(filtros) {
+    try {
+      const knex = db.getQueryBuilder();
+      const data =  await knex.first(
+        'su.usuario_id',
+        'su.username'
+        )
+        .where('su.usuario_id',filtros.usuario_id)
+        .from('usuarios AS su');
+        console.log(data);
+
+        return data || {};
+      
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async validarUsuario(username,password) {
     try {
       const knex = db.getQueryBuilder();

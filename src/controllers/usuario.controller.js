@@ -16,6 +16,21 @@ class UsuarioController {
     
   }
 
+  static obtenerDetalle = async  (req,res) => {
+    try {
+      ResponseHelper.errorValidator(req,res);
+
+      let filtros = req.body || {};
+      const data = await UsuarioService.obtenerDetalle(filtros);
+
+      return ResponseHelper.success(res,'Se obtuvo usuario correctamente',data);
+      
+    } catch (error) {
+      return ResponseHelper.error(res,error.message);
+    }
+    
+  }
+
   static agregar = async  (req,res) => {
     try {
 

@@ -24,9 +24,10 @@ class UsuarioService {
     } catch (error) {
       throw error;
     }
+  }
 
-    
-
+  static async obtenerDetalle(filtros){
+    return UsuarioRepo.obtenerDetalle(filtros);
   }
 }
 
