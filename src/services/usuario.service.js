@@ -17,6 +17,11 @@ class UsuarioService {
         name: data.name || data.username,
       };
 
+      let usuarios = await UsuarioService.listar({username:data.username});
+
+      if(usuarios.length != 0)
+        throw new Error('El username registrado ya existe, intenlo con uno nuevo');
+
       await UsuarioRepo.agregar(usuario);
 
       return usuario;
