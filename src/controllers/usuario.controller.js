@@ -68,5 +68,20 @@ class UsuarioController {
       return ResponseHelper.error(res,error.message);
     }
   }
+
+  static actualizar = async  (req,res) => {
+    try {
+
+      ResponseHelper.errorValidator(req,res);
+
+      let data = req.body || {};
+      const result = await UsuarioService.actualizar(data);
+
+      return ResponseHelper.success(res,'Se actualizo usuario correctamente',result);
+      
+    } catch (error) {
+      return ResponseHelper.error(res,error.message);
+    }
+  }
 }
 module.exports = UsuarioController;

@@ -26,6 +26,23 @@ class UsuarioService {
     }
   }
 
+  static async actualizar(data){
+    try {
+      let usuario = {
+        usuario_id: data.usuario_id,
+        username: data.username,
+        name: data.name,
+      };
+
+      await UsuarioRepo.actualizar(usuario);
+
+      return usuario;
+      
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async obtenerDetalle(filtros){
     return UsuarioRepo.obtenerDetalle(filtros);
   }

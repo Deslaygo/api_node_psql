@@ -53,6 +53,26 @@ class UsuarioRepo {
     }
   }
 
+  static async actualizar(datos) {
+    try {
+      const knex = db.getQueryBuilder();
+      const result =  await knex('usuarios')
+      .where('usuario_id',datos.usuario_id)
+      .update({
+        username:datos.username,
+        name:datos.name,
+      });
+      
+      if(result === 0)
+        throw new Error('El usuario no fue encontrado, no se pudo actualizar');
+
+        return true;
+      
+    } catch (error) {
+      throw error;
+    }
+  }
+
   static async validarUsuario(username,password) {
     try {
       const knex = db.getQueryBuilder();
